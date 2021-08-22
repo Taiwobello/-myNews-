@@ -1,5 +1,4 @@
 import { Provider } from "react-redux";
-import NewsContainer from "./components/NewsContainer/NewsContainer";
 import store from "./redux/store";
 import { Switch, Route, HashRouter} from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
@@ -8,6 +7,7 @@ import SportPage from "./pages/SportPage/SportPage";
 import EntertainmentPage from "./pages/EntertainmentPage/EntertainmentPage";
 
 import {ThemeProvider} from "styled-components";
+import HealthPage from "./pages/HealthPage/HealthPage";
 
 
 const theme = {
@@ -22,15 +22,15 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-          {/* <NewsContainer /> */}
           <HashRouter>
             <Switch>
               <Route exact path="/" component={HomePage} /> 
-              <Route path="/business" component={BussinessPage} />
-              <Route path="/sports" component={SportPage} />
-              <Route path="/entertainment" component={EntertainmentPage} />
+              <Route exact path="/business" component={BussinessPage} />
+              <Route exact path="/sports" component={SportPage} />
+              <Route exact path="/entertainment" component={EntertainmentPage} />
+              <Route exact path="/health" component={HealthPage} />
             </Switch>
-          </HashRouter>
+          </HashRouter>          
       </ThemeProvider>
     </Provider>
     

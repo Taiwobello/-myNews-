@@ -1,4 +1,4 @@
-import {FETCH_GENERAL_NEWS_SUCCESS, FETCH_NEWS_GENERAL} from "./generalNewsTypes"
+import {FETCH_GENERAL_NEWS_SUCCESS, FETCH_NEWS_GENERAL, FETCH_GENERAL_NEWS_FAILURE} from "./generalNewsTypes"
 
 export const fetchNewsGeneral = () => {
     return {
@@ -12,6 +12,13 @@ export const fetchGeneralNewsSuccess = (news) => {
     return {
         type: FETCH_GENERAL_NEWS_SUCCESS,
         payload: news
+    }
+}
+
+export const fetchGeneralFailure = (error) => {
+    return {
+        type: FETCH_GENERAL_NEWS_FAILURE,
+        payload: error
     }
 }
 

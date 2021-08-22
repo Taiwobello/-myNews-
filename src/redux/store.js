@@ -1,28 +1,33 @@
-import { applyMiddleware, createStore } from 'redux';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import rootReducer from './rootReducers';
+import { applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import rootReducer from "./rootReducers";
 
-// const store = createStore(rootReducer, applyMiddleware(logger, thunk))
+//
+
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 // export default store
 
-const saveToLocalStorage = (state) => {
-    const saveState = JSON.stringify(state)
-    localStorage.setItem("persistanceState", saveState)
-}
+// const saveToLocalStorage = (state) => {
+//   const saveState = JSON.stringify(state);
+//   localStorage.setItem("persistanceState", saveState);
+// };
 
-const loadFromLocalStorage = () => {
-    const savedData = localStorage.getItem("persistanceState");
-    if (savedData === null) {
-        return undefined
-    }
-    return JSON.parse(savedData)
-}
+// const loadFromLocalStorage = () => {
+//   const savedData = localStorage.getItem("persistanceState");
+//   if (savedData === null) {
+//     return undefined;
+//   }
+//   return JSON.parse(savedData);
+// };
 
-// const store = createStore(rootReducer, loadFromLocalStorage(), applyMiddleware(logger, thunk))
-const store = createStore(rootReducer, applyMiddleware(logger, thunk))
+// const store = createStore(
+//   rootReducer,
+//   loadFromLocalStorage(),
+//   applyMiddleware(logger, thunk)
+// );
 
-// store.subscribe(() => saveToLocalStorage(store.getState()))
+// store.subscribe(() => saveToLocalStorage(store.getState()));
 
-export default store
+export default store;

@@ -1,4 +1,4 @@
-import { FETCH_ENTERTAINMENT_NEWS_SUCCESS, FETCH_NEWS_ENTERTAINMENT,  } from "./entertainmentNewsTypes"
+import { FETCH_ENTERTAINMENT_NEWS_FAILURE, FETCH_ENTERTAINMENT_NEWS_SUCCESS, FETCH_NEWS_ENTERTAINMENT,  } from "./entertainmentNewsTypes"
 
 const initialState = {
     loading: true,
@@ -20,6 +20,13 @@ const entertainmentNewsReducer = (state = initialState, action) => {
                 loading: false,
                 news: action.payload,
                 error: ""
+            }
+        case FETCH_ENTERTAINMENT_NEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                news: [],
+                error: action.payload
             }
 
         default:

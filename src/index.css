@@ -1,3 +1,10 @@
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -37,6 +44,8 @@ li {
   position: relative;
   width: 80px;
   height: 80px;
+  text-align: center;
+  grid-column: 1 / -1;
 }
 .lds-ripple div {
   position: absolute;
@@ -44,6 +53,7 @@ li {
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  text-align: center;
 }
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
@@ -64,3 +74,41 @@ li {
     opacity: 0;
   }
 }
+
+.Menu {
+  background-color: #e43338;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  /* position: relative;
+  top: rem; */
+  margin-top: 7rem;
+  z-index: -1;
+  display: block;
+  padding: 2rem 3rem;
+}
+
+.menuProvider {
+  height: 90vh;
+  bottom: 0;
+}
+
+#theMenu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translate3d(-100vw, 0, 0);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+/* .nav-container {
+  position: fixed;
+  height: 10vh;
+  top: 0;
+  left: 0;
+  background: red;
+  width: 100%;
+  background: red;
+} */

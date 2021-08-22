@@ -1,4 +1,4 @@
-import { FETCH_GENERAL_NEWS_SUCCESS, FETCH_NEWS_GENERAL,  } from "./generalNewsTypes"
+import { FETCH_GENERAL_NEWS_SUCCESS, FETCH_NEWS_GENERAL, FETCH_GENERAL_NEWS_FAILURE } from "./generalNewsTypes"
 
 const initialState = {
     loading: true,
@@ -20,6 +20,14 @@ const generalNewsReducer = (state = initialState, action) => {
                 loading: false,
                 news: action.payload,
                 error: ""
+            }
+
+        case FETCH_GENERAL_NEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                news: [],
+                error: action.payload
             }
 
         default:

@@ -1,4 +1,4 @@
-import {FETCH_ENTERTAINMENT_NEWS_SUCCESS, FETCH_NEWS_ENTERTAINMENT} from "./entertainmentNewsTypes"
+import {FETCH_ENTERTAINMENT_NEWS_FAILURE, FETCH_ENTERTAINMENT_NEWS_SUCCESS, FETCH_NEWS_ENTERTAINMENT} from "./entertainmentNewsTypes"
 
 export const fetchNewsEntertainment = () => {
     return {
@@ -12,6 +12,13 @@ export const fetchEntertainmentNewsSuccess = (news) => {
     return {
         type: FETCH_ENTERTAINMENT_NEWS_SUCCESS,
         payload: news
+    }
+}
+
+export const fetchEntertainmentFailure = error => {
+    return {
+        type: FETCH_ENTERTAINMENT_NEWS_FAILURE,
+        payload: error
     }
 }
 

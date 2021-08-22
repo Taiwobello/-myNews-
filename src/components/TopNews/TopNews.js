@@ -1,29 +1,33 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Container } from '../../App.styles'
-import TopNewsItem from '../TopNewsItem/TopNewsItem'
-import { StyledTopNews } from './TopNews.styles'
+import React from "react";
+import { Container } from "../../App.styles";
+import TopNewsItem from "../TopNewsItem/TopNewsItem";
+import { StyledTopNews, TopNewsListContainer, Error } from "./TopNews.styles";
 
-function TopNews() {
-    const {news, loading} = useSelector(state => state.generalNews)
-    // const topNews = news.articles.splice(0, 4)
-    // console.log(news)
-    // console.log(topNews)
-    console.log(loading)
-    console.log(news)
-    return (
-        <StyledTopNews>
-            <Container>
-                {
-                    // loading ? 
-                    //     <div className="lds-ripple"><div></div><div></div></div>
-                    // : topNews.map((article, index) => <TopNewsItem key={index} article={article} index={index} />)
-                }
-            </Container>
+function TopNews({ news, loading, error }) {
+  let TopNewsList =  []
+  if (!loading && !error){
+    TopNewsList = news.articles.slice(0, 4)
+  }
+  return (
+    <StyledTopNews>
+      <Container>
+        {loading ? (
+          <div className="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        ) : error ? (<Error>{"No Network Check Interrnet Connection"}</Error>) : (
+          <TopNewsListContainer>
+            {TopNewsList
+            .map((article, index) => (
+              <TopNewsItem key={index} article={article} index={index} error={error} />
+            ))}
+          </TopNewsListContainer>
             
-        </StyledTopNews>
-            
-    )
+        )}
+      </Container>
+    </StyledTopNews>
+  );
 }
 
-export default TopNews
+export default TopNews;

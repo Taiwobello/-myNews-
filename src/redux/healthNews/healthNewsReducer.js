@@ -1,4 +1,4 @@
-import { FETCH_HEALTH_NEWS_SUCCESS, FETCH_NEWS_HEALTH,  } from "./healthNewsTypes"
+import { FETCH_HEALTH_NEWS_FAILURE, FETCH_HEALTH_NEWS_SUCCESS, FETCH_NEWS_HEALTH,  } from "./healthNewsTypes"
 
 const initialState = {
     loading: true,
@@ -20,6 +20,14 @@ const healthNewsReducer = (state = initialState, action) => {
                 loading: false,
                 news: action.payload,
                 error: ""
+            }
+
+        case FETCH_HEALTH_NEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                news: [],
+                error: action.payload
             }
 
         default:

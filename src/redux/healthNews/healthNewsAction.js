@@ -1,4 +1,4 @@
-import {FETCH_HEALTH_NEWS_SUCCESS, FETCH_NEWS_HEALTH} from "./healthNewsTypes"
+import {FETCH_HEALTH_NEWS_FAILURE, FETCH_HEALTH_NEWS_SUCCESS, FETCH_NEWS_HEALTH} from "./healthNewsTypes"
 
 export const fetchNewsHealth = () => {
     return {
@@ -12,6 +12,13 @@ export const fetchHealthNewsSuccess = (news) => {
     return {
         type: FETCH_HEALTH_NEWS_SUCCESS,
         payload: news
+    }
+}
+
+export const fetchHealthFailure = error => {
+    return {
+        type: FETCH_HEALTH_NEWS_FAILURE,
+        payload: error
     }
 }
 

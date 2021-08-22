@@ -1,4 +1,4 @@
-import { FETCH_BUSINESS_NEWS_SUCCESS, FETCH_NEWS_BUSINESS,  } from "./businessNewsTypes"
+import { FETCH_BUSINESS_NEWS_FAILURE, FETCH_BUSINESS_NEWS_SUCCESS, FETCH_NEWS_BUSINESS,  } from "./businessNewsTypes"
 
 const initialState = {
     loading: true,
@@ -20,6 +20,14 @@ const businessNewsReducer = (state = initialState, action) => {
                 loading: false,
                 news: action.payload,
                 error: ""
+            }
+
+        case FETCH_BUSINESS_NEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                news: [],
+                error: action.payload
             }
 
         default:

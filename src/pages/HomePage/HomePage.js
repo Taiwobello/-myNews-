@@ -47,7 +47,7 @@ function HomePage() {
       <Navbar />
       <HomePageTitle>
         <HomePageTitleText>Welcome to</HomePageTitleText>
-        <HomePageLogo src="./images/myNews3.png" />
+        <HomePageLogo src={window.location.origin + "./images/myNews3.png"} />
       </HomePageTitle>
       <TopNews news={news} loading={loading} error={error} />
       <NewsList news={news} loading={loading} error={error}/>

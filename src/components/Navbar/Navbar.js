@@ -1,7 +1,5 @@
 import React from "react";
 import {NavContainer, NavLinkStyle, NavLinks, NavLogo } from './Navbar.styles'
-// import SearchIcon from '@material-ui/icons/Search';
-// import MenuIcon from '@material-ui/icons/Menu';
 import { Container } from '../../App.styles';
 import MenuContainer from "../MenuContainer/MenuContainer";
 import { useState } from "react";
@@ -32,18 +30,6 @@ function Navbar() {
                         <NavLinkStyle to="/sports" activeClassName="active">SPORT</NavLinkStyle>
                         <NavLinkStyle to="/health" activeClassName="active">HEALTH</NavLinkStyle>
                     </NavLinks>
-                    {/* <SearchContainer>
-                        <SearchIcon style={{ 
-                            color: "#000000",
-                            fontSize: 25 
-                            }} fontSize="large" />
-                        <Input placeholder="search" />
-                    </SearchContainer> */}
-                    {/* <MenuIcon className="menu" style={{ 
-                            
-                        }} onClick={() => setToggleMenu(!toggleMenu)} /> */}
-
-                    {/* <Search /> */}
                 </Container>
             </div>
             <MenuContainer toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />

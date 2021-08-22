@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { device } from "../../screenSize";
+
 
 export const HomePageStyle = styled.div`
   min-height: 100%;
@@ -14,6 +16,10 @@ export const HomePageTitle = styled.div`
 export const HomePageLogo = styled.img`
   height: 50px;
   color: red;
+
+  @media ${device.mobileL}{
+    height: 40px;
+  }
 `;
 
 export const HomePageTitleText = styled.h1`
